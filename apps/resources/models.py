@@ -48,6 +48,25 @@ class ResourcesTag(CreatedModifiedDateTimeBase):
         "resources.Resources", on_delete=models.CASCADE)
     tag_id = models.ForeignKey("resources.Tag", on_delete=models.CASCADE)
 
+    def __str__(self):
+        return f"{self.resources_id.title} - {self.tag_id.name}"
+
+    def title(self):
+        return self.resources_id.title
+
+    def tag(self):
+        return self.tag_id.name
+
+    class Meta:
+        constraints = [
+            models.UniqueConstraint(
+                "resources_id",
+                "tag_id",
+                name="resource_tag_unique",
+                violation_error_message="Tag already exists for resource"
+            )
+        ]
+
 
 class Review(CreatedModifiedDateTimeBase):
     user_id = models.ForeignKey(
@@ -59,6 +78,12 @@ class Review(CreatedModifiedDateTimeBase):
     def __str__(self):
         return f"{self.user_id.username} - {self.resources_id.title}"
 
+    def username(self):
+        return self.user_id.username
+
+    def title(self):
+        return self.resources_id.title
+
 
 class Rating(CreatedModifiedDateTimeBase):
     user_id = models.ForeignKey(
@@ -68,4 +93,10 @@ class Rating(CreatedModifiedDateTimeBase):
     rate = models.IntegerField(validators=[validators.check_rating_range])
 
     def __str__(self):
-        return self.rate
+        return str(self.rate)
+
+    def username(self):
+        return self.user_id.username
+
+    def title(self):
+        return self.resources_id.title

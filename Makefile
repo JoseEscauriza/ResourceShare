@@ -21,3 +21,6 @@ dev-sqlmigrate:
 
 dev-shell:
 	python manage.py shell --settings=config.settings.dev
+
+dev-rollback:
+	python manage.py migrate $(A) $(M) --settings=config.settings.dev
