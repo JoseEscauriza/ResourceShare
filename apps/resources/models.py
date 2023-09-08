@@ -32,7 +32,7 @@ class Resources(CreatedModifiedDateTimeBase):
     # rate = ArrayField(base_field=models.IntegerField())
 
     class Meta:
-        verbose_name_plural = "Recources"
+        verbose_name_plural = "Resources"
 
     def __str__(self):
         return f"{self.user_id.username} - {self.title}"
@@ -40,6 +40,9 @@ class Resources(CreatedModifiedDateTimeBase):
     @property
     def user_title(self):
         return self.user_id.title
+
+    def all_tags(self):
+        return ", ".join([tag.name for tag in self.tags.all()])
 
 
 class ResourcesTag(CreatedModifiedDateTimeBase):
