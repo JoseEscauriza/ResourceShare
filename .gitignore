@@ -3,3 +3,12 @@
 .vscode
 db.sqlite3
 .idea
+
+logs/*.txt
+
+*.logs*.pot
+*.pyc
+__pycache__/
+local_settings.py
+db.sqlite3-journal
+media
