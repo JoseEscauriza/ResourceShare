@@ -115,7 +115,7 @@ def resource_post(request):
                 title=data['title'],
             )
             # REDIRECT TO HOME PAGE
-            return redirect(home_page)
+            return redirect(HomePage)
 
 
 class HomePage(TemplateView):
