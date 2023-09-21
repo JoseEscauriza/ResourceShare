@@ -33,6 +33,8 @@ jobs:
           POSTGRES_USER: ${{ env.DB_USER }}
           POSTGRES_PASSWORD: ${{ env.DB_PASSWORD }}
           POSTGRES_DB: ${{ env.DB_NAME }}
+        ports:
+          - 5432: 5432
 
     steps:
     - uses: actions/checkout@v3
