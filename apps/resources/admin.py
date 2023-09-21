@@ -8,7 +8,7 @@ class CustomResources(admin.ModelAdmin):
         'title',
         'link',
         'description',
-        'user_title',
+        "user_title",
         "get_tags"
     )
 

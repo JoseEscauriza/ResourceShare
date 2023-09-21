@@ -32,6 +32,8 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "apps.core.middleware.log.simple_logging_middleware",
+    # "apps.core.middleware.logging.ViewExecutionTime2Middleware",
 ]
 
 ROOT_URLCONF = "config.urls"
@@ -84,3 +86,40 @@ STATIC_URL = "static/"
 STATICFILES_DIRS = [str(BASE_DIR / "static")]
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+LOGIN_URL = "login-view"
+
+
+LOGGING = {
+    'version': 1,
+    'loggers': {
+        'logging_mw': {
+            'handlers': ['file', 'console'],
+            "level": "INFO",
+        }
+    },
+    'handlers': {
+        "console": {
+            "level": "DEBUG",
+            "class": "logging.StreamHandler",
+            "filters": ["if_debug_true"],
+        },
+        "file": {
+            "level": "INFO",
+            "class": "logging.FileHandler",
+            "filename": str(BASE_DIR / "logs" / "req_res_logs.txt"),
+            "formatter": "verbose"
+        }
+    },
+    'formatters': {
+        "verbose": {
+            "format": "{levelname} {asctime} {module} :: {message}",
+            "style": "{",
+        }
+    },
+    'filters': {
+        "if_debug_true": {
+            "()": "django.utils.log.RequireDebugTrue",
+        }
+    },
+}
