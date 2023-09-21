@@ -2,8 +2,8 @@ from django import forms
 
 
 class PostResourceForm(forms.Form):
-    category_choices = [("Databases", "Databases"),
-                        ("Programming languages", "Programming languages")]
+    category_choices = [("1", "Databases"),
+                        ("2", "Programming languages")]
 
     tag_choices = [("1", "Paid"), ("2", "Free"), ("3", "SQL"), ("4", "Python"),
                    ("5", "Django"), ("6", "Mid-level"), ("7", "Advanced"), ("8", "Beginner")]

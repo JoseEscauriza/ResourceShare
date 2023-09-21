@@ -198,3 +198,6 @@ INFO 2023-09-21 09:46:24,791 log :: GET | testserver/ | text/plain | Mozilla/5.0
 INFO 2023-09-21 09:46:24,917 log :: GET | testserver/ | text/plain | Mozilla/5.0
 INFO 2023-09-21 09:46:25,046 log :: GET | testserver/resource/1 | text/plain | Mozilla/5.0
 INFO 2023-09-21 09:46:25,303 log :: GET | testserver/resource/5 | text/plain | Mozilla/5.0
+INFO 2023-09-21 11:43:19,722 log :: GET | 127.0.0.1:8000/ | text/plain | Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/117.0
+INFO 2023-09-21 11:43:19,870 log :: GET | 127.0.0.1:8000/favicon.ico | text/plain | Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/117.0
+INFO 2023-09-21 11:43:23,949 log :: GET | 127.0.0.1:8000/resource/post/ | text/plain | Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/117.0
